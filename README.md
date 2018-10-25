@@ -13,10 +13,10 @@ Version 2:
   3. Integrate into Andriod Application
   
   ## Plan
-  - Week 1 (October 28 - Novemebr 4th) : update code so it allows multiple messages to go through
-	- Week 2 – Week 3 (Novemeber 4th - Novemebr 18th): Create the “communication triangle” to allow two unique clients to connect to one         server and communicate with each other
-	- Week 4 (Novemeber 18th - 25th) : Add code to a locally hosted webpage and add web language functionality to the webpage
-	- Week 5 (Novemeber 25th - Decemeber 7th): Add as much optional features as possible until the deadline is met
+   - Week 1 (October 28 - Novemebr 4th) : update code so it allows multiple messages to go through
+   - Week 2 – Week 3 (Novemeber 4th - Novemebr 18th): Create the “communication triangle” to allow two unique clients to connect to 	   	one server and communicate with each other
+   - Week 4 (Novemeber 18th - 25th) : Add code to a locally hosted webpage and add web language functionality to the webpage
+   - Week 5 (Novemeber 25th - Decemeber 7th): Add as much optional features as possible until the deadline is met
 
 ## Team Members
 - Paul Sender (Team Lead, Web/Android Integration specilist)
