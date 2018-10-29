@@ -19,10 +19,12 @@
 ## Week 2 (Nov 5 - Nov 12)
 
 ### What did your team do last week?
-...
+* Set up a multithreaded client/server 
+* Made multiple clients communicate over the server
 
 ### What will you do this week?
-...
+* Set up the GUI for the UI to make it nice
+* Refine any bugs the code has
 
 ### Any blocking issues/challenges need to be addressed?
-...
+* So far there hasnt been many issues
