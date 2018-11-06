@@ -29,3 +29,6 @@
   ### Any blocking issues/challenges need to be addressed?
   * Seemless funtionality on Andriod Application
   * Learning new NetBeans IDE
+
+# Comments
+1. Better organize the project repo. For example, move source code to separate folders for client/server
