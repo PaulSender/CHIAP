@@ -8,9 +8,9 @@ Version 2:
   - How: Multiple messages through one client and multiple clients will be done through a techneque called multithreading. Server funtionality will be done though specially defined methods within the call that get run whenever one of the clinets inputs a special keyword. Web application will be done though a locally hosted webpage at first and time permitting onto a full functional domain. The Andriod app (time permitting) will be done through anroid studio. 
   
  ## Deliverables
-  1. Update code to acheive desired functionality
-  2. Integrate into Web Application
-  3. Integrate into Andriod Application
+  1. Create chat room that allows multiple clients to communicate to each other and to the server through server-client archtecture. 
+  2. Integrate functionality into Andriod application
+  3. Integrate functionaolty into Java GUI
   
   ## Plan
    - Week 1 (October 28 - Novemebr 4th) : update code so it allows multiple messages to go through
@@ -19,8 +19,8 @@ Version 2:
    - Week 5 (Novemeber 25th - Decemeber 7th): Add as much optional features as possible until the deadline is met
 
 ## Team Members
-- Paul Sender (Team Lead, Web/Android Integration specilist)
-- Randy Ryan (Front-end Web/Andriod)
-- Kyle McDevitt (Back-end for all platforms)
+- Paul Sender (Team Lead, Android Integration specilist)
+- Randy Ryan (Front-end GUI/Andriod)
+- Kyle McDevitt (Back-end functionality)
 ## Walk Through GIF
 <img src="https://media.giphy.com/media/eBjvfyxGcFTwWJoKv7/giphy.gif" width=1000><br>
