@@ -52,3 +52,18 @@
 ### Comments
 1. Any progress on Android client app?
 2. Any issue with client-server communication?
+
+## Week 4 (Nov 19 - Nov 26)
+
+### What did your team do last week?
+* Worked on the GUI implementation of the project
+* Tweaked bugs with the display messages sorted out 
+
+### What will you do this week?
+* Work on implementing images or sound into the data transfer between clients. 
+* Allowing connections from different computers.
+* Try to implement the project into an Android client app
+
+### Any blocking issues/challenges need to be addressed?
+* Allowing other data (images, sounds) to be sent across architecture.
+* Allowing connections to a server from seperate laptops. 
