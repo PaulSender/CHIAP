@@ -30,7 +30,7 @@
   * Seamless functionality on Android Application
   * Learning new NetBeans IDE
 
-# Comments
+### Comments
 1. Better organize the project repo. For example, move source code to separate folders for client/server (Resolved)
 
 ## Week 3 (Nov 12 - Nov 19)
@@ -48,3 +48,7 @@
 ### Any blocking issues/challenges need to be addressed?
 * Scheduling more time to work on the project
 * Allowing other data (images, sounds) to be send across architecture. 
+
+### Comments
+1. Any progress on Android client app?
+2. Any issue with client-server communication?
