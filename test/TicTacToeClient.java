@@ -168,7 +168,7 @@ public class TicTacToeClient extends JFrame{
             String serverAddress = (args.length == 0) ? "10.200.91.98" : args[1]; // take in Who ever is host's IP
             TicTacToeClient client = new TicTacToeClient(serverAddress);
             client.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            client.frame.setSize(240, 160);
+            client.frame.setSize(500, 500);
             client.frame.setVisible(true);
             client.frame.setResizable(false);
             client.play();

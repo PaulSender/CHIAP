@@ -9,6 +9,11 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.GroupLayout;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Dimension;
+import javax.swing.JScrollBar;
+import java.awt.Color;
+import java.awt.SystemColor;
+import javax.swing.UIManager;
+import java.awt.Font;
 
 public class server_frame extends javax.swing.JFrame 
 {
@@ -86,6 +91,7 @@ public class server_frame extends javax.swing.JFrame
 
     public server_frame() 
     {
+    	getContentPane().setBackground(new Color(128, 128, 128));
     	setMinimumSize(new Dimension(500, 500));
         initComponents();
     }
@@ -95,12 +101,28 @@ public class server_frame extends javax.swing.JFrame
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
+        jScrollPane1.setBounds(12, 13, 470, 344);
         ta_chat = new javax.swing.JTextArea();
+        ta_chat.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+        ta_chat.setForeground(new Color(0, 204, 0));
+        ta_chat.setBackground(Color.DARK_GRAY);
         b_start = new javax.swing.JButton();
+        b_start.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+        b_start.setBackground(SystemColor.control);
+        b_start.setBounds(12, 375, 75, 25);
         b_end = new javax.swing.JButton();
+        b_end.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+        b_end.setBackground(SystemColor.control);
+        b_end.setBounds(12, 418, 75, 25);
         b_users = new javax.swing.JButton();
+        b_users.setBackground(SystemColor.control);
+        b_users.setFont(new Font("OCR A Extended", Font.PLAIN, 9));
+        b_users.setBounds(379, 375, 103, 25);
         b_clear = new javax.swing.JButton();
-        b_start_tic_tac = new javax.swing.JButton();
+        b_clear.setBackground(SystemColor.control);
+        b_clear.setFont(new Font("OCR A Extended", Font.PLAIN, 13));
+        b_clear.setBounds(379, 418, 103, 25);
+      
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Chat - Server's frame");
@@ -138,67 +160,27 @@ public class server_frame extends javax.swing.JFrame
                 b_clearActionPerformed(evt);
             }
         });
-        
-        
-        b_start_tic_tac.setText("Start Tic Tac");
-        b_start_tic_tac.addActionListener(new ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				b_startTicTacServer(evt);
-				
-			}
-		});
-        
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        layout.setHorizontalGroup(
-        	layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addGroup(layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-        				.addGroup(layout.createSequentialGroup()
-        					.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(b_end, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(b_start, GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE))
-        					.addGap(18)
-        					.addComponent(b_start_tic_tac)
-        					.addPreferredGap(ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-        					.addGroup(layout.createParallelGroup(Alignment.LEADING, false)
-        						.addComponent(b_clear, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        						.addComponent(b_users, GroupLayout.PREFERRED_SIZE, 103, Short.MAX_VALUE))))
-        			.addContainerGap())
-        );
-        layout.setVerticalGroup(
-        	layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(layout.createSequentialGroup()
-        			.addContainerGap()
-        			.addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE)
-        			.addGap(18)
-        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(b_start)
-        				.addComponent(b_users)
-        				.addComponent(b_start_tic_tac))
-        			.addGap(18)
-        			.addGroup(layout.createParallelGroup(Alignment.BASELINE)
-        				.addComponent(b_clear)
-        				.addComponent(b_end))
-        			.addGap(22))
-        );
-        getContentPane().setLayout(layout);
+        getContentPane().setLayout(null);
+        getContentPane().add(jScrollPane1);
+        getContentPane().add(b_end);
+        getContentPane().add(b_start);
+        getContentPane().add(b_clear);
+        getContentPane().add(b_users);
 
-        pack();
+       
     }// </editor-fold>                        
 
     private void b_endActionPerformed(java.awt.event.ActionEvent evt) {                                      
         try 
         {
-            Thread.sleep(5000);                 //5000 milliseconds is five second.
+        	ta_chat.append("Server Shutting down");
+            Thread.sleep(1000);     
+            
         } 
         catch(InterruptedException ex) {Thread.currentThread().interrupt();}
         
-        tellEveryone("Server:is stopping and all users will be disconnected.\n:Chat");
-        ta_chat.append("Server stopping... \n");
-        
-        ta_chat.setText("");
+        tellEveryone("Server:Server is stopping and all users will now be disconnected.\n:Chat");
+       
     }                                     
 
     private void b_startActionPerformed(java.awt.event.ActionEvent evt) {                                        
@@ -207,8 +189,8 @@ public class server_frame extends javax.swing.JFrame
         chat.start();
         ticTac.start();
         
-        ta_chat.append("Server started...\n");
-        ta_chat.append("TicTac started...\n");
+        ta_chat.append("Servers running...\n");
+        
     }                                       
 
     private void b_usersActionPerformed(java.awt.event.ActionEvent evt) {                                        
@@ -351,5 +333,4 @@ public class server_frame extends javax.swing.JFrame
     private javax.swing.JButton b_users;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea ta_chat;
-    private javax.swing.JButton b_start_tic_tac;
 }

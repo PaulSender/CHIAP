@@ -160,6 +160,18 @@ public class ChatGUI extends javax.swing.JFrame {
         ipaddressLabel = new javax.swing.JLabel();
         mainMenu = new javax.swing.JButton();
         Exit = new javax.swing.JButton();
+        MainMenu = new javax.swing.JPanel();
+        ShopButton = new javax.swing.JButton();
+        BlackJackButton = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        DisconnectButton = new javax.swing.JButton();
+        Exit4 = new javax.swing.JButton();
+        mainMenu4 = new javax.swing.JButton();
+        menuConsole = new javax.swing.JScrollPane();
+        mainMenuConsole = new javax.swing.JTextArea();
+        messageOut = new javax.swing.JTextField();
+        sendButton = new javax.swing.JButton();
+        TicTacToeButton = new javax.swing.JButton();
         Shop = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         fiftyButton = new javax.swing.JButton();
@@ -197,27 +209,12 @@ public class ChatGUI extends javax.swing.JFrame {
         DealerHandValue = new javax.swing.JLabel();
         playerHandValue1 = new javax.swing.JLabel();
         Files = new javax.swing.JPanel();
-        attachmentButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         FileConsole = new javax.swing.JTextArea();
         Exit3 = new javax.swing.JButton();
-        mainMenu3 = new javax.swing.JButton();
         messageOut4 = new javax.swing.JTextField();
         FileSendButton = new javax.swing.JButton();
-        MainMenu = new javax.swing.JPanel();
-        ShopButton = new javax.swing.JButton();
-        BlackJackButton = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        FilesButton = new javax.swing.JButton();
-        DisconnectButton = new javax.swing.JButton();
-        Exit4 = new javax.swing.JButton();
-        mainMenu4 = new javax.swing.JButton();
-        menuConsole = new javax.swing.JScrollPane();
-        mainMenuConsole = new javax.swing.JTextArea();
-        messageOut = new javax.swing.JTextField();
-        sendButton = new javax.swing.JButton();
-        TicTacToeButton = new javax.swing.JButton();
         TicTacToe = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -227,18 +224,13 @@ public class ChatGUI extends javax.swing.JFrame {
         mainMenu5 = new javax.swing.JButton();
         Exit5 = new javax.swing.JButton();
         TTTstartGameButton = new javax.swing.JButton();
-        topMiddle = new javax.swing.JButton();
-        topRight = new javax.swing.JButton();
-        topLeft = new javax.swing.JButton();
-        middleLeft = new javax.swing.JButton();
-        middleCenter = new javax.swing.JButton();
-        middleRight = new javax.swing.JButton();
-        bottomMiddle = new javax.swing.JButton();
-        bottomRight = new javax.swing.JButton();
-        bottomLeft = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1050, 600));
+        setResizable(false);
         getContentPane().setLayout(new javax.swing.OverlayLayout(getContentPane()));
+
+        ConnectScreen.setPreferredSize(new java.awt.Dimension(1000, 500));
 
         serverIP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,6 +244,7 @@ public class ChatGUI extends javax.swing.JFrame {
         console.setViewportView(connectScreenConsole);
 
         connectButton.setText("Connect");
+        connectButton.setAlignmentX(0.5F);
         connectButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 connectButtonActionPerformed(evt);
@@ -259,8 +252,10 @@ public class ChatGUI extends javax.swing.JFrame {
         });
 
         usernameLabel.setText("Username");
+        usernameLabel.setAlignmentX(0.5F);
 
         ipaddressLabel.setText("IP address of server");
+        ipaddressLabel.setAlignmentX(0.5F);
 
         mainMenu.setBackground(new java.awt.Color(0, 0, 0));
         mainMenu.setForeground(new java.awt.Color(0, 255, 0));
@@ -289,27 +284,22 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Exit))
             .addGroup(ConnectScreenLayout.createSequentialGroup()
-                .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ConnectScreenLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(usernameLabel)
-                        .addGap(366, 366, 366)
-                        .addComponent(connectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ConnectScreenLayout.createSequentialGroup()
-                        .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ConnectScreenLayout.createSequentialGroup()
-                                .addGap(118, 118, 118)
-                                .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ClientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(serverIP, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(ConnectScreenLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(console, javax.swing.GroupLayout.PREFERRED_SIZE, 1125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(ConnectScreenLayout.createSequentialGroup()
-                                .addGap(510, 510, 510)
-                                .addComponent(ipaddressLabel)))
-                        .addGap(0, 31, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(console)
                 .addContainerGap())
+            .addGroup(ConnectScreenLayout.createSequentialGroup()
+                .addGap(417, 417, 417)
+                .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(connectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(ConnectScreenLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(usernameLabel)
+                            .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(serverIP)
+                                .addComponent(ipaddressLabel)
+                                .addComponent(ClientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(485, Short.MAX_VALUE))
         );
         ConnectScreenLayout.setVerticalGroup(
             ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,21 +309,153 @@ public class ChatGUI extends javax.swing.JFrame {
                     .addComponent(Exit))
                 .addGap(27, 27, 27)
                 .addComponent(console, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addComponent(ipaddressLabel)
-                .addGap(18, 18, 18)
-                .addComponent(serverIP, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(usernameLabel)
-                    .addComponent(connectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addComponent(ClientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(serverIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(usernameLabel)
+                .addGap(8, 8, 8)
+                .addComponent(ClientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(connectButton)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         getContentPane().add(ConnectScreen);
 
+        MainMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        MainMenu.setPreferredSize(new java.awt.Dimension(750, 513));
+
+        ShopButton.setText("Shop");
+        ShopButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShopButtonActionPerformed(evt);
+            }
+        });
+
+        BlackJackButton.setText("BlackJack");
+        BlackJackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BlackJackButtonActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setText("Main Menu");
+
+        DisconnectButton.setText("Disconnect");
+        DisconnectButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DisconnectButtonActionPerformed(evt);
+            }
+        });
+
+        Exit4.setBackground(new java.awt.Color(0, 0, 0));
+        Exit4.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 13)); // NOI18N
+        Exit4.setForeground(new java.awt.Color(255, 0, 51));
+        Exit4.setText("Exit");
+        Exit4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Exit4ActionPerformed(evt);
+            }
+        });
+
+        mainMenu4.setBackground(new java.awt.Color(0, 0, 0));
+        mainMenu4.setFont(new java.awt.Font("Microsoft YaHei UI", 0, 13)); // NOI18N
+        mainMenu4.setForeground(new java.awt.Color(0, 255, 0));
+        mainMenu4.setText("Main Menu");
+        mainMenu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mainMenu4ActionPerformed(evt);
+            }
+        });
+
+        mainMenuConsole.setColumns(20);
+        mainMenuConsole.setRows(5);
+        menuConsole.setViewportView(mainMenuConsole);
+
+        messageOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                messageOutActionPerformed(evt);
+            }
+        });
+
+        sendButton.setText("Send");
+        sendButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sendButtonActionPerformed(evt);
+            }
+        });
+
+        TicTacToeButton.setText("Tic Tac Toe");
+        TicTacToeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TicTacToeButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu);
+        MainMenu.setLayout(MainMenuLayout);
+        MainMenuLayout.setHorizontalGroup(
+            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainMenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MainMenuLayout.createSequentialGroup()
+                        .addComponent(mainMenu4)
+                        .addGap(368, 368, 368)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Exit4))
+                    .addGroup(MainMenuLayout.createSequentialGroup()
+                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(TicTacToeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(BlackJackButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DisconnectButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ShopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MainMenuLayout.createSequentialGroup()
+                                .addComponent(messageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(menuConsole))))
+                .addContainerGap())
+        );
+        MainMenuLayout.setVerticalGroup(
+            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MainMenuLayout.createSequentialGroup()
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(mainMenu4)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Exit4))
+                .addGap(42, 42, 42)
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(menuConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MainMenuLayout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addComponent(ShopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BlackJackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(TicTacToeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(DisconnectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(messageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MainMenuLayout.createSequentialGroup()
+                        .addComponent(sendButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(4, 4, 4))))
+        );
+
+        getContentPane().add(MainMenu);
+
+        Shop.setPreferredSize(new java.awt.Dimension(1000, 500));
+
+        jLabel4.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
         jLabel4.setText("Shop");
 
         fiftyButton.setText("50$");
@@ -373,6 +495,7 @@ public class ChatGUI extends javax.swing.JFrame {
         jLabel10.setText("Orange Background");
 
         mainMenu1.setBackground(new java.awt.Color(0, 0, 0));
+        mainMenu1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 13)); // NOI18N
         mainMenu1.setForeground(new java.awt.Color(0, 255, 0));
         mainMenu1.setText("Main Menu");
         mainMenu1.addActionListener(new java.awt.event.ActionListener() {
@@ -382,6 +505,7 @@ public class ChatGUI extends javax.swing.JFrame {
         });
 
         Exit1.setBackground(new java.awt.Color(0, 0, 0));
+        Exit1.setFont(new java.awt.Font("Microsoft YaHei UI Light", 0, 13)); // NOI18N
         Exit1.setForeground(new java.awt.Color(255, 0, 51));
         Exit1.setText("Exit");
         Exit1.addActionListener(new java.awt.event.ActionListener() {
@@ -412,81 +536,79 @@ public class ChatGUI extends javax.swing.JFrame {
         ShopLayout.setHorizontalGroup(
             ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ShopLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(137, 137, 137)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(ShopLayout.createSequentialGroup()
-                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ShopLayout.createSequentialGroup()
-                                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(fiftyButton)
-                                    .addComponent(hundredButton))
-                                .addGap(0, 9, Short.MAX_VALUE))
-                            .addGroup(ShopLayout.createSequentialGroup()
-                                .addComponent(hundredfiftyButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(ShopLayout.createSequentialGroup()
-                                .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(46, 46, 46)
-                                .addComponent(shopSendButton)
-                                .addGap(33, 33, 33))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ShopLayout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))
-                    .addGroup(ShopLayout.createSequentialGroup()
-                        .addComponent(twohundredButton)
-                        .addContainerGap())))
-            .addGroup(ShopLayout.createSequentialGroup()
                 .addComponent(mainMenu1)
-                .addGap(190, 190, 190)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(396, 396, 396)
                 .addComponent(Exit1))
+            .addGroup(ShopLayout.createSequentialGroup()
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(ShopLayout.createSequentialGroup()
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(hundredButton))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ShopLayout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(fiftyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(ShopLayout.createSequentialGroup()
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(hundredfiftyButton))
+                    .addGroup(ShopLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(twohundredButton)))
+                .addGap(69, 69, 69)
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ShopLayout.createSequentialGroup()
+                        .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(shopSendButton))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ShopLayout.setVerticalGroup(
             ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ShopLayout.createSequentialGroup()
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(mainMenu1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Exit1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(ShopLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(mainMenu1))
-                .addGap(31, 31, 31)
+                        .addGap(66, 66, 66)
+                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fiftyButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(hundredButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(hundredfiftyButton))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(twohundredButton))
+                        .addGap(193, 193, 193))
+                    .addGroup(ShopLayout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fiftyButton))
-                .addGap(42, 42, 42)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(hundredButton))
-                .addGap(85, 85, 85)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hundredfiftyButton))
-                .addGap(41, 41, 41)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(twohundredButton))
-                .addGap(167, 167, 167))
-            .addGroup(ShopLayout.createSequentialGroup()
-                .addComponent(Exit1)
-                .addGap(12, 12, 12)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(shopSendButton))
-                .addGap(105, 105, 105))
+                    .addComponent(shopSendButton)
+                    .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(119, 141, Short.MAX_VALUE))
         );
 
         getContentPane().add(Shop);
 
+        BlackJack.setPreferredSize(new java.awt.Dimension(1050, 600));
+
+        BlackJackLabel.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         BlackJackLabel.setText("BlackJack");
 
         stayButton.setText("Stay");
@@ -562,64 +684,63 @@ public class ChatGUI extends javax.swing.JFrame {
         BlackJackLayout.setHorizontalGroup(
             BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BlackJackLayout.createSequentialGroup()
+                .addContainerGap()
                 .addComponent(mainMenu2)
-                .addGap(366, 366, 366)
-                .addComponent(BlackJackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Exit2))
+                .addComponent(Exit2)
+                .addContainerGap())
             .addGroup(BlackJackLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BlackJackLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(BlackJackLayout.createSequentialGroup()
-                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(BlackJackLayout.createSequentialGroup()
-                                        .addGap(37, 37, 37)
-                                        .addComponent(stayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(HitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(96, 96, 96))
-                                    .addGroup(BlackJackLayout.createSequentialGroup()
-                                        .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(BlackJackLayout.createSequentialGroup()
-                                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(185, 185, 185)
-                                                .addComponent(dealerCard, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGroup(BlackJackLayout.createSequentialGroup()
-                                                .addGap(183, 183, 183)
-                                                .addComponent(newBlackJackGame)))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)))
-                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(BlackJackLayout.createSequentialGroup()
-                                        .addComponent(messageOut2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(127, 127, 127)
-                                        .addComponent(blackJackSendButton))
-                                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(playerHandValue1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(stayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(HitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(96, 96, 96))
                             .addGroup(BlackJackLayout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(212, 212, 212)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(BlackJackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(BlackJackLayout.createSequentialGroup()
+                                            .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(185, 185, 185)
+                                            .addComponent(dealerCard, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(BlackJackLayout.createSequentialGroup()
+                                            .addGap(183, 183, 183)
+                                            .addComponent(newBlackJackGame))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
+                        .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(BlackJackLayout.createSequentialGroup()
+                                .addComponent(messageOut2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(blackJackSendButton))
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 491, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(14, 14, 14))
                     .addGroup(BlackJackLayout.createSequentialGroup()
-                        .addComponent(playerHandValue1, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(130, 130, 130)
-                        .addComponent(DealerHandValue, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(212, 212, 212)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+            .addGroup(BlackJackLayout.createSequentialGroup()
+                .addGap(348, 348, 348)
+                .addComponent(DealerHandValue, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BlackJackLayout.setVerticalGroup(
             BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(BlackJackLayout.createSequentialGroup()
-                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(Exit2)
-                        .addComponent(mainMenu2))
-                    .addComponent(BlackJackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BlackJackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Exit2)
+                    .addComponent(mainMenu2))
                 .addGap(18, 18, 18)
                 .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -645,31 +766,23 @@ public class ChatGUI extends javax.swing.JFrame {
                             .addComponent(newBlackJackGame))))
                 .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BlackJackLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(messageOut2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(blackJackSendButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(stayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(HitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44))
                     .addGroup(BlackJackLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
-                        .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(stayButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(HitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)))
+                        .addGap(7, 7, 7)
+                        .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(blackJackSendButton)
+                            .addComponent(messageOut2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(DealerHandValue, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(playerHandValue1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                    .addComponent(playerHandValue1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         getContentPane().add(BlackJack);
-
-        attachmentButton.setText("Attachment");
-        attachmentButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                attachmentButtonActionPerformed(evt);
-            }
-        });
 
         jLabel6.setText("Files");
 
@@ -683,15 +796,6 @@ public class ChatGUI extends javax.swing.JFrame {
         Exit3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Exit3ActionPerformed(evt);
-            }
-        });
-
-        mainMenu3.setBackground(new java.awt.Color(0, 0, 0));
-        mainMenu3.setForeground(new java.awt.Color(0, 255, 0));
-        mainMenu3.setText("Main Menu");
-        mainMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenu3ActionPerformed(evt);
             }
         });
 
@@ -713,15 +817,12 @@ public class ChatGUI extends javax.swing.JFrame {
         FilesLayout.setHorizontalGroup(
             FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FilesLayout.createSequentialGroup()
-                .addComponent(mainMenu3)
-                .addGap(336, 336, 336)
+                .addGap(431, 431, 431)
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Exit3))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FilesLayout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(attachmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
+                .addGap(71, 400, Short.MAX_VALUE)
                 .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(FilesLayout.createSequentialGroup()
@@ -733,159 +834,23 @@ public class ChatGUI extends javax.swing.JFrame {
         FilesLayout.setVerticalGroup(
             FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FilesLayout.createSequentialGroup()
-                .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(FilesLayout.createSequentialGroup()
-                        .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Exit3)
-                            .addComponent(mainMenu3))
-                        .addGap(50, 50, 50)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(attachmentButton, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Exit3))
+                .addGap(50, 50, 50)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92)
                 .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(messageOut4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FileSendButton))
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         getContentPane().add(Files);
 
-        ShopButton.setText("Shop");
-        ShopButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShopButtonActionPerformed(evt);
-            }
-        });
+        TicTacToe.setPreferredSize(new java.awt.Dimension(665, 500));
 
-        BlackJackButton.setText("BlackJack");
-        BlackJackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BlackJackButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel3.setText("Main Menu");
-
-        FilesButton.setText("Files");
-        FilesButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FilesButtonActionPerformed(evt);
-            }
-        });
-
-        DisconnectButton.setText("Disconnect");
-        DisconnectButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DisconnectButtonActionPerformed(evt);
-            }
-        });
-
-        Exit4.setBackground(new java.awt.Color(0, 0, 0));
-        Exit4.setForeground(new java.awt.Color(255, 0, 51));
-        Exit4.setText("Exit");
-        Exit4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Exit4ActionPerformed(evt);
-            }
-        });
-
-        mainMenu4.setBackground(new java.awt.Color(0, 0, 0));
-        mainMenu4.setForeground(new java.awt.Color(0, 255, 0));
-        mainMenu4.setText("Main Menu");
-        mainMenu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mainMenu4ActionPerformed(evt);
-            }
-        });
-
-        mainMenuConsole.setColumns(20);
-        mainMenuConsole.setRows(5);
-        menuConsole.setViewportView(mainMenuConsole);
-
-        messageOut.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                messageOutActionPerformed(evt);
-            }
-        });
-
-        sendButton.setText("Send");
-        sendButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sendButtonActionPerformed(evt);
-            }
-        });
-
-        TicTacToeButton.setText("Tic Tac Toe");
-        TicTacToeButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TicTacToeButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout MainMenuLayout = new javax.swing.GroupLayout(MainMenu);
-        MainMenu.setLayout(MainMenuLayout);
-        MainMenuLayout.setHorizontalGroup(
-            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addComponent(mainMenu4)
-                .addGap(364, 364, 364)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Exit4))
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(FilesButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BlackJackButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ShopButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(TicTacToeButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE))
-                            .addComponent(DisconnectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 486, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(73, 73, 73)
-                        .addComponent(menuConsole, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE))
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(messageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(222, 222, 222)
-                        .addComponent(sendButton)))
-                .addContainerGap())
-        );
-        MainMenuLayout.setVerticalGroup(
-            MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Exit4)
-                            .addComponent(mainMenu4))
-                        .addGap(56, 56, 56))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, MainMenuLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addComponent(menuConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(86, 86, 86)
-                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(messageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sendButton)))
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addComponent(ShopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BlackJackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(FilesButton, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(TicTacToeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(DisconnectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(MainMenu);
-
+        jLabel1.setFont(new java.awt.Font("Sylfaen", 1, 18)); // NOI18N
         jLabel1.setText("Tic Tac Toe");
 
         TTTConsole.setColumns(20);
@@ -917,64 +882,11 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
+        TTTstartGameButton.setFont(new java.awt.Font("Perpetua Titling MT", 1, 18)); // NOI18N
         TTTstartGameButton.setText("Start Game");
         TTTstartGameButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 TTTstartGameButtonActionPerformed(evt);
-            }
-        });
-
-        topMiddle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topMiddleActionPerformed(evt);
-            }
-        });
-
-        topRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topRightActionPerformed(evt);
-            }
-        });
-
-        topLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                topLeftActionPerformed(evt);
-            }
-        });
-
-        middleLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleLeftActionPerformed(evt);
-            }
-        });
-
-        middleCenter.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleCenterActionPerformed(evt);
-            }
-        });
-
-        middleRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                middleRightActionPerformed(evt);
-            }
-        });
-
-        bottomMiddle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottomMiddleActionPerformed(evt);
-            }
-        });
-
-        bottomRight.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottomRightActionPerformed(evt);
-            }
-        });
-
-        bottomLeft.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bottomLeftActionPerformed(evt);
             }
         });
 
@@ -983,124 +895,51 @@ public class ChatGUI extends javax.swing.JFrame {
         TicTacToeLayout.setHorizontalGroup(
             TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TicTacToeLayout.createSequentialGroup()
-                .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TicTacToeLayout.createSequentialGroup()
-                        .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TicTacToeLayout.createSequentialGroup()
-                                .addGap(235, 235, 235)
-                                .addComponent(topMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, TicTacToeLayout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(TicTacToeLayout.createSequentialGroup()
-                                        .addComponent(bottomLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(bottomMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(TicTacToeLayout.createSequentialGroup()
-                                        .addComponent(middleLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(middleCenter, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(27, 27, 27)
-                        .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(topRight, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(middleRight, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bottomRight, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(TicTacToeLayout.createSequentialGroup()
-                        .addGap(261, 261, 261)
-                        .addComponent(TTTstartGameButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addGap(72, 72, 72)
                 .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(TicTacToeLayout.createSequentialGroup()
                         .addComponent(messageOut3, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(TTTButton)
-                        .addGap(25, 25, 25)))
+                        .addComponent(TTTButton))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 458, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TicTacToeLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(mainMenu5)
+                .addGap(168, 168, 168)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Exit5)
                 .addContainerGap())
             .addGroup(TicTacToeLayout.createSequentialGroup()
-                .addComponent(mainMenu5)
-                .addGap(399, 399, 399)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Exit5))
-            .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(TicTacToeLayout.createSequentialGroup()
-                    .addGap(35, 35, 35)
-                    .addComponent(topLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(976, Short.MAX_VALUE)))
+                .addGap(241, 241, 241)
+                .addComponent(TTTstartGameButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TicTacToeLayout.setVerticalGroup(
             TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TicTacToeLayout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mainMenu5)
-                    .addComponent(Exit5))
+                    .addComponent(Exit5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(mainMenu5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
+                .addComponent(TTTstartGameButton)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TicTacToeLayout.createSequentialGroup()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(messageOut3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TTTButton)))
-                    .addGroup(TicTacToeLayout.createSequentialGroup()
-                        .addComponent(TTTstartGameButton)
-                        .addGap(43, 43, 43)
-                        .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(topRight, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(topMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
-                        .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(middleLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(middleCenter, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(middleRight, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(27, 27, 27)
-                        .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(bottomLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bottomMiddle, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(bottomRight, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(96, Short.MAX_VALUE))
-            .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(TicTacToeLayout.createSequentialGroup()
-                    .addGap(162, 162, 162)
-                    .addComponent(topLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(437, Short.MAX_VALUE)))
+                .addGroup(TicTacToeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(messageOut3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TTTButton))
+                .addGap(61, 61, 61))
         );
 
         getContentPane().add(TicTacToe);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void mainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuActionPerformed
-        ConnectScreen.setVisible(false);
-        Shop.setVisible(false);
-        BlackJack.setVisible(false);
-        Files.setVisible(false);
-        MainMenu.setVisible(true);
-                
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mainMenuActionPerformed
-
-    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_ExitActionPerformed
-
-    private void attachmentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attachmentButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_attachmentButtonActionPerformed
-
-    private void FilesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FilesButtonActionPerformed
-        // TODO add your handling code here:
-        ConnectScreen.setVisible(false);
-        Shop.setVisible(false);
-        BlackJack.setVisible(false);
-        Files.setVisible(true);
-        MainMenu.setVisible(false);
-    
-    }//GEN-LAST:event_FilesButtonActionPerformed
 
     private void BlackJackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BlackJackButtonActionPerformed
         // TODO add your handling code here:
@@ -1135,33 +974,6 @@ public class ChatGUI extends javax.swing.JFrame {
     
         // TODO add your handling code here:
     }//GEN-LAST:event_ShopButtonActionPerformed
-
-    private void serverIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverIPActionPerformed
-// TODO add your handling code here:
-    }//GEN-LAST:event_serverIPActionPerformed
-
-    private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
-        
-     
-      userName =  ClientUsername.getText();
-        IP  =  serverIP.getText();
-      boolean connected = connectToServer(IP, userName);
-      if (connected == true){
-        ConnectScreen.setVisible(false);
-        Shop.setVisible(false);
-        BlackJack.setVisible(false);
-        Files.setVisible(false);
-        MainMenu.setVisible(true);
-        mainMenu.setVisible(true);
-      }
-      else{
-          connectScreenConsole.append("Please enter a valid IP address\n");
-      }
-      ListenThread();
-      
-        
-// TODO add your handling code here:
-    }//GEN-LAST:event_connectButtonActionPerformed
 
     private void DisconnectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DisconnectButtonActionPerformed
         // TODO add your handling code here:
@@ -1222,11 +1034,6 @@ public class ChatGUI extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_Exit2ActionPerformed
 
-    private void Exit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit3ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_Exit3ActionPerformed
-
     private void Exit4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit4ActionPerformed
       System.exit(0);
         // TODO add your handling code here:
@@ -1242,17 +1049,6 @@ public class ChatGUI extends javax.swing.JFrame {
         TicTacToe.setVisible(false);
                 
     }//GEN-LAST:event_mainMenu2ActionPerformed
-
-    private void mainMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenu3ActionPerformed
-        // TODO add your handling code here:
-         ConnectScreen.setVisible(false);
-        Shop.setVisible(false);
-        BlackJack.setVisible(false);
-        Files.setVisible(false);
-        MainMenu.setVisible(true);
-        TicTacToe.setVisible(false);
-                
-    }//GEN-LAST:event_mainMenu3ActionPerformed
 
     private void mainMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenu4ActionPerformed
         // TODO add your handling code here:
@@ -1296,10 +1092,6 @@ public class ChatGUI extends javax.swing.JFrame {
         
 // TODO add your handling code here:
     }//GEN-LAST:event_sendButtonActionPerformed
-
-    private void messageOut4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageOut4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_messageOut4ActionPerformed
 
     private void TicTacToeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicTacToeButtonActionPerformed
         // TODO add your handling code here
@@ -1413,32 +1205,6 @@ public class ChatGUI extends javax.swing.JFrame {
       messageOut3.setText("");
       messageOut3.requestFocus();
     }//GEN-LAST:event_TTTButtonActionPerformed
-
-    private void FileSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FileSendButtonActionPerformed
-        // TODO add your handling code here:
-        if(messageOut4.getText().equals("")){
-          messageOut4.setText("");
-          messageOut4.requestFocus();
-      }
-      else{
-          try{
-              writer.println(userName + ":" + messageOut4.getText() + ":" + "Chat");
-              writer.flush();
-              messageOut4.setText("");
-          }
-          catch(Exception ex){
-              mainMenuConsole.append("Message was not sent");
-              shopConsole.append("Message was not sent");
-              BlackJackConsole.append("Message was not sent");
-              TTTConsole.append("Message was not sent");
-              FileConsole.append("Message was not sent");
-          }
-          messageOut4.setText("");
-          messageOut4.requestFocus();
-      }
-      messageOut4.setText("");
-      messageOut4.requestFocus();
-    }//GEN-LAST:event_FileSendButtonActionPerformed
 
     private void HitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HitButtonActionPerformed
         // TODO add your handling code here:
@@ -1568,16 +1334,7 @@ public class ChatGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_twohundredButtonActionPerformed
 
     private void TTTstartGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TTTstartGameButtonActionPerformed
-       topMiddle.setVisible(true);
-       topLeft.setVisible(true);
-       topRight.setVisible(true);
-       middleCenter.setVisible(true);
-       middleLeft.setVisible(true);
-       middleRight.setVisible(true);
-       bottomMiddle.setVisible(true);
-       bottomLeft.setVisible(true);
-       bottomRight.setVisible(true);
-       
+
         
         
         // TODO add your handling code here:
@@ -1586,41 +1343,80 @@ public class ChatGUI extends javax.swing.JFrame {
         }*/
     }//GEN-LAST:event_TTTstartGameButtonActionPerformed
 
-    private void topLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topLeftActionPerformed
+    private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_topLeftActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_ExitActionPerformed
 
-    private void topMiddleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topMiddleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_topMiddleActionPerformed
+    private void mainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mainMenuActionPerformed
+        ConnectScreen.setVisible(false);
+        Shop.setVisible(false);
+        BlackJack.setVisible(false);
+        Files.setVisible(false);
+        MainMenu.setVisible(true);
 
-    private void topRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_topRightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_topRightActionPerformed
+    }//GEN-LAST:event_mainMenuActionPerformed
 
-    private void middleLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleLeftActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_middleLeftActionPerformed
+    private void connectButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_connectButtonActionPerformed
 
-    private void middleCenterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleCenterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_middleCenterActionPerformed
+        userName =  ClientUsername.getText();
+        IP  =  serverIP.getText();
+        boolean connected = connectToServer(IP, userName);
+        if (connected == true){
+            ConnectScreen.setVisible(false);
+            Shop.setVisible(false);
+            BlackJack.setVisible(false);
+            Files.setVisible(false);
+            MainMenu.setVisible(true);
+            mainMenu.setVisible(true);
+        }
+        else{
+            connectScreenConsole.append("Please enter a valid IP address\n");
+        }
+        ListenThread();
 
-    private void middleRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_middleRightActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_middleRightActionPerformed
+    }//GEN-LAST:event_connectButtonActionPerformed
 
-    private void bottomLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomLeftActionPerformed
+    private void serverIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_serverIPActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bottomLeftActionPerformed
+    }//GEN-LAST:event_serverIPActionPerformed
 
-    private void bottomMiddleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomMiddleActionPerformed
+    private void FileSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FileSendButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bottomMiddleActionPerformed
+        if(messageOut4.getText().equals("")){
+            messageOut4.setText("");
+            messageOut4.requestFocus();
+        }
+        else{
+            try{
+                writer.println(userName + ":" + messageOut4.getText() + ":" + "Chat");
+                writer.flush();
+                messageOut4.setText("");
+            }
+            catch(Exception ex){
+                mainMenuConsole.append("Message was not sent");
+                shopConsole.append("Message was not sent");
+                BlackJackConsole.append("Message was not sent");
+                TTTConsole.append("Message was not sent");
+                FileConsole.append("Message was not sent");
+            }
+            messageOut4.setText("");
+            messageOut4.requestFocus();
+        }
+        messageOut4.setText("");
+        messageOut4.requestFocus();
+    }//GEN-LAST:event_FileSendButtonActionPerformed
 
-    private void bottomRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bottomRightActionPerformed
+    private void messageOut4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageOut4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_bottomRightActionPerformed
+    }//GEN-LAST:event_messageOut4ActionPerformed
+
+    private void Exit3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit3ActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_Exit3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1646,7 +1442,6 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea FileConsole;
     private javax.swing.JButton FileSendButton;
     private javax.swing.JPanel Files;
-    private javax.swing.JButton FilesButton;
     private javax.swing.JButton HitButton;
     private javax.swing.JPanel MainMenu;
     private javax.swing.JPanel Shop;
@@ -1656,11 +1451,7 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JButton TTTstartGameButton;
     private javax.swing.JPanel TicTacToe;
     private javax.swing.JButton TicTacToeButton;
-    private javax.swing.JButton attachmentButton;
     private javax.swing.JButton blackJackSendButton;
-    private javax.swing.JButton bottomLeft;
-    private javax.swing.JButton bottomMiddle;
-    private javax.swing.JButton bottomRight;
     private javax.swing.JLabel card1;
     private javax.swing.JLabel card2;
     private javax.swing.JLabel card3;
@@ -1690,7 +1481,6 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JButton mainMenu;
     private javax.swing.JButton mainMenu1;
     private javax.swing.JButton mainMenu2;
-    private javax.swing.JButton mainMenu3;
     private javax.swing.JButton mainMenu4;
     private javax.swing.JButton mainMenu5;
     private javax.swing.JTextArea mainMenuConsole;
@@ -1700,9 +1490,6 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JTextField messageOut2;
     private javax.swing.JTextField messageOut3;
     private javax.swing.JTextField messageOut4;
-    private javax.swing.JButton middleCenter;
-    private javax.swing.JButton middleLeft;
-    private javax.swing.JButton middleRight;
     private javax.swing.JButton newBlackJackGame;
     private javax.swing.JLabel playerHandValue1;
     private javax.swing.JButton sendButton;
@@ -1710,9 +1497,6 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JTextArea shopConsole;
     private javax.swing.JButton shopSendButton;
     private javax.swing.JButton stayButton;
-    private javax.swing.JButton topLeft;
-    private javax.swing.JButton topMiddle;
-    private javax.swing.JButton topRight;
     private javax.swing.JButton twohundredButton;
     private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
