@@ -33,7 +33,7 @@ public class TicTacToeServer {
      * Runs the application. Pairs up clients that connect.
      */
     public static void main(String[] args) throws Exception {
-        ServerSocket listener = new ServerSocket(2222);
+        ServerSocket listener = new ServerSocket(2221);
         System.out.println("Tic Tac Toe Server is Running");
         
     }

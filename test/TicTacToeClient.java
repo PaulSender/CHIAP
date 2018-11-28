@@ -42,7 +42,7 @@ public class TicTacToeClient extends JFrame{
     private Square[] board = new Square[9];
     private Square currentSquare;
 
-    private static int PORT = 2222;
+    private static int PORT = 2221;
     private Socket socket;
     private BufferedReader in;
     private PrintWriter out;

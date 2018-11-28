@@ -202,10 +202,13 @@ public class server_frame extends javax.swing.JFrame
     }                                     
 
     private void b_startActionPerformed(java.awt.event.ActionEvent evt) {                                        
-        Thread starter = new Thread(new ServerStart());
-        starter.start();
+        Thread chat = new Thread(new ServerStart());
+        Thread ticTac = new Thread(new ServerStart());
+        chat.start();
+        ticTac.start();
         
         ta_chat.append("Server started...\n");
+        ta_chat.append("TicTac started...\n");
     }                                       
 
     private void b_usersActionPerformed(java.awt.event.ActionEvent evt) {                                        
@@ -264,7 +267,7 @@ public class server_frame extends javax.swing.JFrame
                 //while 
             }
             catch (Exception ex) {
-                ta_chat.append("Error making a connection. \n");
+                //ta_chat.append("Error making a connection. \n");
             }
 // Tic Tac Toe
             try {
@@ -282,7 +285,7 @@ public class server_frame extends javax.swing.JFrame
           
             	}
             catch (Exception ex) {
-            	ta_chat.append("Error");
+            	//ta_chat.append("Error");
             }
         }
     }

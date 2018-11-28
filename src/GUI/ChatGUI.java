@@ -8,6 +8,7 @@ package GUI;
 import java.awt.Color;
 import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -1302,21 +1303,13 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void TicTacToeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicTacToeButtonActionPerformed
         // TODO add your handling code here
-        ConnectScreen.setVisible(false);
-        Shop.setVisible(false);
-        BlackJack.setVisible(false);
-        Files.setVisible(false);
-        MainMenu.setVisible(false);
-        topMiddle.setVisible(false);
-       topLeft.setVisible(false);
-       topRight.setVisible(false);
-       middleCenter.setVisible(false);
-       middleLeft.setVisible(false);
-       middleRight.setVisible(false);
-       bottomMiddle.setVisible(false);
-       bottomLeft.setVisible(false);
-       bottomRight.setVisible(false);
-        TicTacToe.setVisible(true);
+        try {
+					Desktop.getDesktop().open(new File("C:\\Users\\senderp\\Desktop\\TicTacToe.jar"));
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+            
         
         
     }//GEN-LAST:event_TicTacToeButtonActionPerformed
