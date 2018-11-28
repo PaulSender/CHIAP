@@ -105,15 +105,16 @@ public class TicTacToeClient extends JFrame{
                 response = in.readLine();
                 if (response.startsWith("VALID_MOVE")) {
                     messageLabel.setText("Valid move, please wait");
-                    currentSquare.setIcon(icon);
+                    currentSquare.setBackground(Color.blue);
                     currentSquare.repaint();
                 } else if (response.startsWith("OPPONENT_MOVED")) {
                     int loc = Integer.parseInt(response.substring(15));
-                    board[loc].setIcon(opponentIcon);
+                    board[loc].setBackground(Color.red);
                     board[loc].repaint();
                     messageLabel.setText("Opponent moved, your turn");
                 } else if (response.startsWith("VICTORY")) {
                     messageLabel.setText("You win");
+                    
                     break;
                 } else if (response.startsWith("DEFEAT")) {
                     messageLabel.setText("You lose");
@@ -164,7 +165,7 @@ public class TicTacToeClient extends JFrame{
      */
     public static void main(String[] args) throws Exception {
         while (true) {
-            String serverAddress = (args.length == 0) ? "localhost" : args[1];
+            String serverAddress = (args.length == 0) ? "10.200.91.98" : args[1]; // take in Who ever is host's IP
             TicTacToeClient client = new TicTacToeClient(serverAddress);
             client.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             client.frame.setSize(240, 160);
