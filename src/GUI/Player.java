@@ -3,13 +3,6 @@ package GUI;
 
 import GUI.Hand;
 
-/**
- * This class creates a player that can be assigned for a card game.
- * A player can have a name, and a hand of cards.
- * 
- * @author Jeff Gore, Randy Ryan, Kyle Mcdevitt
- *
- */
 public class Player {
 	private String name;
 	private Hand hand;

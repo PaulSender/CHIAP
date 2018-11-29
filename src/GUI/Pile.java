@@ -228,7 +228,7 @@ public class Pile implements CardListInterface {
 	 * @return the shuffled deck of cards
 	 */
 	public static Pile shuffle(Pile p) {
-		// Random r = new Random();
+		
 		Pile newPile = new Pile();
 		ArrayList<Card> list = new ArrayList<Card>();
 

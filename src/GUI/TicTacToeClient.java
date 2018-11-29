@@ -15,25 +15,6 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-
-/**
- * A client for the TicTacToe game, modified and extended from the
- * class presented in Deitel and Deitel "Java How to Program" book.
- * I made a bunch of enhancements and rewrote large sections of the
- * code.  In particular I created the TTTP (Tic Tac Toe Protocol)
- * which is entirely text based.  Here are the strings that are sent:
- *
- *  Client -> Server           Server -> Client
- *  ----------------           ----------------
- *  MOVE <n>  (0 <= n <= 8)    WELCOME <char>  (char in {X, O})
- *  QUIT                       VALID_MOVE
- *                             OTHER_PLAYER_MOVED <n>
- *                             VICTORY
- *                             DEFEAT
- *                             TIE
- *                             MESSAGE <text>
- *
- */
 public class TicTacToeClient extends JFrame {
 
     private JFrame frame = new JFrame("Tic Tac Toe");
@@ -49,10 +30,6 @@ public class TicTacToeClient extends JFrame {
     private BufferedReader in;
     private PrintWriter out;
 
-    /**
-     * Constructs the client by connecting to a server, laying out the
-     * GUI and registering GUI listeners.
-     */
     public TicTacToeClient(String serverAddress) throws Exception {
 
         // Setup networking
@@ -80,19 +57,6 @@ public class TicTacToeClient extends JFrame {
         frame.getContentPane().add(boardPanel, "Center");
     }
 
-    /**
-     * The main thread of the client will listen for messages
-     * from the server.  The first message will be a "WELCOME"
-     * message in which we receive our mark.  Then we go into a
-     * loop listening for "VALID_MOVE", "OPPONENT_MOVED", "VICTORY",
-     * "DEFEAT", "TIE", "OPPONENT_QUIT or "MESSAGE" messages,
-     * and handling each message appropriately.  The "VICTORY",
-     * "DEFEAT" and "TIE" ask the user whether or not to play
-     * another game.  If the answer is no, the loop is exited and
-     * the server is sent a "QUIT" message.  If an OPPONENT_QUIT
-     * message is recevied then the loop will exit and the server
-     * will be sent a "QUIT" message also.
-     */
     public void play() throws Exception {
         String response;
         try {
@@ -145,11 +109,6 @@ public class TicTacToeClient extends JFrame {
         return response == JOptionPane.YES_OPTION;
     }
 
-    /**
-     * Graphical square in the client window.  Each square is
-     * a white panel containing.  A client calls setIcon() to fill
-     * it with an Icon, presumably an X or O.
-     */
     static class Square extends JPanel {
         JLabel label = new JLabel((Icon)null);
 
@@ -163,9 +122,6 @@ public class TicTacToeClient extends JFrame {
         }
     }
 
-    /**
-     * Runs the client as an application.
-     */
     public static void main(String[] args) throws Exception {
         while (true) {
             String serverAddress = (args.length == 0) ? "10.200.91.98" : args[1]; // take in Who ever is host's IP

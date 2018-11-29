@@ -1,20 +1,12 @@
 package GUI;
 
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.*;
 import java.util.*;
-import javax.swing.JRadioButton;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import java.awt.Dimension;
-import javax.swing.JScrollBar;
 import java.awt.Color;
 import java.awt.SystemColor;
-import javax.swing.UIManager;
 import java.awt.Font;
 
 public class server_frame extends javax.swing.JFrame 

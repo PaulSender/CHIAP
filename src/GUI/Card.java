@@ -1,11 +1,5 @@
 package GUI;
 
-/**
- * Class creates a card that can be used for a game
- * Card has a Rank, a suit, and a value to give an int to the suit 
- * @author Jeff Gore, Randy Ryan, Kyle Mcdevitt
- *
- */
 public class Card {
 	enum Suit{
 		Hearts, Spades, Clubs, Diamonds;

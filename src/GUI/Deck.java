@@ -3,12 +3,6 @@ package GUI;
 
 import GUI.Card;
 
-/**
- * This class creates a standard deck of 52 cards to be used for any 
- * multitude of card games.
- * @author Jeff Gore, Randy Ryan, Kyle Mcdevitt
- *
- */
 public class Deck extends Pile {
 	private static Pile deck;
 
