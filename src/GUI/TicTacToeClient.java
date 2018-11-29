@@ -116,13 +116,10 @@ public class TicTacToeClient extends JFrame {
                     messageLabel.setText("Opponent moved, your turn");
                 } else if (response.startsWith("VICTORY")) {
                     messageLabel.setText("You win");
-                    ChatGUI.addBalance();
-                    System.out.println("you wonn");
                     
                     break;
                 } else if (response.startsWith("DEFEAT")) {
                     messageLabel.setText("You lose");
-                    ChatGUI.removeBalance();
                     break;
                 } else if (response.startsWith("TIE")) {
                     messageLabel.setText("You tied");

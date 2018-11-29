@@ -27,7 +27,8 @@ public class ChatGUI extends javax.swing.JFrame {
     public static Player player = new Player("Player");
     public static Player dealer = new Player("Dealer");
     public static int count = 0;
-    public static double balance = 500;
+    public static double balance = 100;
+    public static String jarFilePath;
     
     public static double getBalance(){
         return balance;
@@ -36,8 +37,8 @@ public class ChatGUI extends javax.swing.JFrame {
         balance+=10;
     }
     public static void removeBalance(){
-       if (balance>=5){
-        balance-=5;
+       if (balance>=1){
+        balance-=1;
        }
     }/*
     public static void printWinner(String winner, String loser, String msg){
@@ -579,15 +580,13 @@ public class ChatGUI extends javax.swing.JFrame {
                             .addComponent(fiftyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addComponent(twohundredButton, javax.swing.GroupLayout.Alignment.TRAILING))
                     .addComponent(hundredfiftyButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ShopLayout.createSequentialGroup()
-                        .addGap(69, 69, 69)
                         .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(84, 84, 84)
                         .addComponent(shopSendButton))
-                    .addGroup(ShopLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         ShopLayout.setVerticalGroup(
@@ -619,10 +618,10 @@ public class ChatGUI extends javax.swing.JFrame {
                     .addGroup(ShopLayout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(shopSendButton))
+                .addGap(18, 18, 18)
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(shopSendButton)
+                    .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1006,7 +1005,7 @@ public class ChatGUI extends javax.swing.JFrame {
     private void ShopButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShopButtonActionPerformed
 
         ConnectScreen.setVisible(false);
-        shopConsole.append("Your balance is: " + balance + "\n");
+        shopConsole.append("Your balance is: " + balance + "$\n");
         Shop.setVisible(true);
         BlackJack.setVisible(false);
         Files.setVisible(false);
@@ -1048,12 +1047,14 @@ public class ChatGUI extends javax.swing.JFrame {
                 playerHandValue1.setText("Player Hand Value: " + player.getHand().getCards().valueOfHand());
                 BlackJackConsole.append(Pile.whoWon(dealer.getHand().getCards(), player.getHand().getCards()) + "\nPress the New Game button to play again\n");
                 if(Pile.whoWon(dealer.getHand().getCards(), player.getHand().getCards()).equals("You won!") ||Pile.whoWon(dealer.getHand().getCards(), player.getHand().getCards()).equals("Dealer bust, You win!") ){
-                    balance += 10;
-                    BlackJackConsole.append("Your balance is now: " + balance + "\n");
+                    addBalance();
+                    BlackJackConsole.append("Your balance is now: " + balance + "$\n");
                     writer.println("Server: "+ userName + " won a game of Black Jack" + ":Chat");
                     writer.flush();
                 }
                 else{
+                    removeBalance();
+                    BlackJackConsole.append("Your balance is now: " + balance + "$\n");
                    writer.println("Server: "+ userName + " lost in a game of Black Jack" + ":Chat");
                    writer.flush();
                 }
@@ -1120,9 +1121,15 @@ public class ChatGUI extends javax.swing.JFrame {
               TTTConsole.append("Your balance is: " + balance + "$\n");
               FileConsole.append("Your balance is: " + balance + "$\n");
         }
+        else if(messageOut.getText().startsWith("@@")){
+          jarFilePath = messageOut.getText();
+           jarFilePath = jarFilePath.substring(2);
+          mainMenuConsole.append("\"" + jarFilePath + "\" has been set as the path to the Jar file.\n");
+        }
        else if(messageOut.getText().equals("")){
           messageOut.setText("");
           messageOut.requestFocus();
+          
       }
       else{
           try{
@@ -1149,10 +1156,12 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void TicTacToeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicTacToeButtonActionPerformed
         // TODO add your handling code here
-        writer.println(userName + " has started a game of Tic Tac Toe" + ":Chat");
-        writer.flush();
+        
+        
         try {
-					Desktop.getDesktop().open(new File("C:\\Users\\ryanr4\\Desktop\\TicTacToe.jar"));
+					Desktop.getDesktop().open(new File(jarFilePath));
+                                        writer.println(userName + ": has started a game of Tic Tac Toe" + ":Chat");
+         writer.flush();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1184,6 +1193,11 @@ if(messageOut1.getText().equals("/bal")){
               shopConsole.append("Your balance is: " + balance + "$\n");
               TTTConsole.append("Your balance is: " + balance + "$\n");
               FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+else if(messageOut1.getText().startsWith("@@")){
+          jarFilePath = messageOut1.getText();
+          jarFilePath = jarFilePath.substring(2);
+           mainMenuConsole.append("\"" + jarFilePath + "\" has been set as the path to the Jar file.\n");
         }
         
        else if(messageOut1.getText().equals("")){
@@ -1226,6 +1240,11 @@ if(messageOut1.getText().equals("/bal")){
               TTTConsole.append("Your balance is: " + balance + "$\n");
               FileConsole.append("Your balance is: " + balance + "$\n");
         }
+       else if(messageOut2.getText().startsWith("@@")){
+          jarFilePath = messageOut2.getText();
+           jarFilePath = jarFilePath.substring(2);
+          mainMenuConsole.append("\"" + jarFilePath + "\" has been set as the path to the Jar file.\n");
+        }
        else if(messageOut2.getText().equals("")){
           messageOut2.setText("");
           messageOut2.requestFocus();
@@ -1259,6 +1278,11 @@ if(messageOut1.getText().equals("/bal")){
               shopConsole.append("Your balance is: " + balance + "$\n");
               TTTConsole.append("Your balance is: " + balance + "$\n");
               FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+         else if(messageOut3.getText().startsWith("@@")){
+          jarFilePath = messageOut3.getText();
+          jarFilePath = jarFilePath.substring(2);
+           mainMenuConsole.append("\"" + jarFilePath + "\" has been set as the path to the Jar file.\n");
         }
        else if(messageOut3.getText().equals("")){
           messageOut3.setText("");
@@ -1323,8 +1347,11 @@ if(messageOut1.getText().equals("/bal")){
 		// if player busts the game is over for them
 		if (player.getHand().getCards().bust()) {
 			BlackJackConsole.append("Bust, you lose! Press New Game to play again.\n");
+                        
                         writer.println("Server: "+ userName+ " lost a game of Black Jack" + ":Chat");
                         writer.flush();
+                        removeBalance();
+                        BlackJackConsole.append("Your new balance is: " + balance + "$\n");
 			stayButton.setVisible(false);
 			HitButton.setVisible(false);
                         DealerHandValue.setVisible(true);
@@ -1431,18 +1458,20 @@ if(messageOut1.getText().equals("/bal")){
 
     private void twohundredButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twohundredButtonActionPerformed
         // TODO add your handling code here:
-         if (balance>=50){
+         if (balance>=200){
           fiftyButton.setVisible(true);
           hundredButton.setVisible(true);
           hundredfiftyButton.setVisible(true);
           twohundredButton.setVisible(false);
-          balance -= 50;
+          balance -= 200;
           Shop.setBackground(Color.red);
           BlackJack.setBackground(Color.red);
           MainMenu.setBackground(Color.red);
           Files.setBackground(Color.red);
           TicTacToe.setBackground(Color.red);
           shopConsole.append("Your new balance is: " + balance + "$\n");
+          writer.println(userName + ": just bought the red background for 200$! :Chat");
+          writer.flush();
       }
       else{
           shopConsole.append("Not enough balance\nYour balance is: "+ balance + "$\n");
@@ -1486,6 +1515,12 @@ if(messageOut1.getText().equals("/bal")){
             Files.setVisible(false);
             MainMenu.setVisible(true);
             mainMenu.setVisible(true);
+            BlackJackConsole.append("Use /bal to check your balance\n");
+            shopConsole.append("Use /bal to check your balance\n");
+            TTTConsole.append("Use /bal to check your balance\n");
+            mainMenuConsole.append("Use /bal to check your balance\n");
+            mainMenuConsole.append("Use @@ at the begging of the message to specify the jar file for Tic Tac Toe\nFor example type @@C:\\Users\\(Your username)\\Desktop\\TicTacToeWindow.jar into the message box then hit send\n");
+         
         }
         else{
             connectScreenConsole.append("Please enter a valid IP address\n");
@@ -1507,6 +1542,11 @@ if(messageOut1.getText().equals("/bal")){
               shopConsole.append("Your balance is: " + balance + "$\n");
               TTTConsole.append("Your balance is: " + balance + "$\n");
               FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+        else if(messageOut4.getText().startsWith("@@")){
+          jarFilePath = messageOut4.getText();
+           jarFilePath = jarFilePath.substring(2);
+           mainMenuConsole.append("\"" + jarFilePath + "\" has been set as the path to the Jar file.\n");
         }
        else if(messageOut4.getText().equals("")){
             messageOut4.setText("");
