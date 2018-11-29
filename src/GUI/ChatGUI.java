@@ -27,8 +27,24 @@ public class ChatGUI extends javax.swing.JFrame {
     public static Player player = new Player("Player");
     public static Player dealer = new Player("Dealer");
     public static int count = 0;
-    public static double balance = 0;
-
+    public static double balance = 500;
+    
+    public static double getBalance(){
+        return balance;
+    }
+    public static void addBalance(){
+        balance+=10;
+    }
+    public static void removeBalance(){
+       if (balance>=5){
+        balance-=5;
+       }
+    }/*
+    public static void printWinner(String winner, String loser, String msg){
+        String message = winner + " beat" + loser + " in a game of Tic Tac Toe";
+        printToConsoles(message);
+    }
+*/
     /**
      * Creates new form ChatGUI
      */
@@ -48,6 +64,10 @@ public class ChatGUI extends javax.swing.JFrame {
 	public static BufferedReader reader;
 	public static PrintWriter writer;
         ArrayList<String> users = new ArrayList();
+        
+        public static PrintWriter getWriter(){
+            return writer;
+        }
         public boolean connectToServer(String address, String username){
             if(isConnected == false){
                 try{
@@ -208,6 +228,9 @@ public class ChatGUI extends javax.swing.JFrame {
         jLabel15 = new javax.swing.JLabel();
         DealerHandValue = new javax.swing.JLabel();
         playerHandValue1 = new javax.swing.JLabel();
+        card5 = new javax.swing.JLabel();
+        card6 = new javax.swing.JLabel();
+        card7 = new javax.swing.JLabel();
         Files = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -288,18 +311,14 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addComponent(console)
                 .addContainerGap())
             .addGroup(ConnectScreenLayout.createSequentialGroup()
-                .addGap(417, 417, 417)
-                .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(connectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(ConnectScreenLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(usernameLabel)
-                            .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(serverIP)
-                                .addComponent(ipaddressLabel)
-                                .addComponent(ClientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addGap(429, 429, 429)
+                .addGroup(ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(usernameLabel)
+                    .addComponent(serverIP)
+                    .addComponent(ipaddressLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ClientUsername)
+                    .addComponent(connectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(430, Short.MAX_VALUE))
         );
         ConnectScreenLayout.setVerticalGroup(
             ConnectScreenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,7 +338,7 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addComponent(ClientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(connectButton)
-                .addContainerGap(184, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         getContentPane().add(ConnectScreen);
@@ -341,7 +360,7 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Niagara Engraved", 1, 48)); // NOI18N
         jLabel3.setText("Main Menu");
 
         DisconnectButton.setText("Disconnect");
@@ -402,46 +421,43 @@ public class ChatGUI extends javax.swing.JFrame {
             .addGroup(MainMenuLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(TicTacToeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ShopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DisconnectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BlackJackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addComponent(mainMenu4)
-                        .addGap(368, 368, 368)
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Exit4))
-                    .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(TicTacToeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(BlackJackButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(DisconnectButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ShopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MainMenuLayout.createSequentialGroup()
-                                .addComponent(messageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(menuConsole))))
+                        .addComponent(messageOut, javax.swing.GroupLayout.PREFERRED_SIZE, 669, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                        .addComponent(sendButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(menuConsole))
                 .addContainerGap())
+            .addGroup(MainMenuLayout.createSequentialGroup()
+                .addComponent(mainMenu4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(370, 370, 370)
+                .addComponent(Exit4))
         );
         MainMenuLayout.setVerticalGroup(
             MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MainMenuLayout.createSequentialGroup()
-                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(mainMenu4)
+                .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Exit4))
+                    .addComponent(Exit4)
+                    .addComponent(mainMenu4))
                 .addGap(42, 42, 42)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(menuConsole, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MainMenuLayout.createSequentialGroup()
-                        .addGap(37, 37, 37)
+                        .addGap(56, 56, 56)
                         .addComponent(ShopButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(BlackJackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TicTacToeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(DisconnectButton, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(MainMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -458,6 +474,7 @@ public class ChatGUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Sylfaen", 1, 24)); // NOI18N
         jLabel4.setText("Shop");
 
+        fiftyButton.setForeground(java.awt.Color.green);
         fiftyButton.setText("50$");
         fiftyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -465,6 +482,7 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
+        hundredButton.setForeground(java.awt.Color.blue);
         hundredButton.setText("100$");
         hundredButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -472,6 +490,7 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
+        hundredfiftyButton.setForeground(java.awt.Color.orange);
         hundredfiftyButton.setText("150$");
         hundredfiftyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -479,6 +498,7 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
+        twohundredButton.setForeground(java.awt.Color.red);
         twohundredButton.setText("200$");
         twohundredButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -486,12 +506,16 @@ public class ChatGUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel7.setForeground(java.awt.Color.green);
         jLabel7.setText("Green Background");
 
+        jLabel8.setForeground(java.awt.Color.blue);
         jLabel8.setText("Blue Background");
 
+        jLabel9.setForeground(java.awt.Color.red);
         jLabel9.setText("Red Background");
 
+        jLabel10.setForeground(java.awt.Color.orange);
         jLabel10.setText("Orange Background");
 
         mainMenu1.setBackground(new java.awt.Color(0, 0, 0));
@@ -537,36 +561,34 @@ public class ChatGUI extends javax.swing.JFrame {
             ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ShopLayout.createSequentialGroup()
                 .addComponent(mainMenu1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 381, Short.MAX_VALUE)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(396, 396, 396)
                 .addComponent(Exit1))
             .addGroup(ShopLayout.createSequentialGroup()
                 .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(ShopLayout.createSequentialGroup()
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hundredButton))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ShopLayout.createSequentialGroup()
-                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(fiftyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(ShopLayout.createSequentialGroup()
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(hundredfiftyButton))
-                    .addGroup(ShopLayout.createSequentialGroup()
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(twohundredButton)))
-                .addGap(69, 69, 69)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(64, 64, 64)
                 .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(hundredButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fiftyButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(twohundredButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(hundredfiftyButton))
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(ShopLayout.createSequentialGroup()
-                        .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 429, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(69, 69, 69)
+                        .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(shopSendButton))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(ShopLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 676, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         ShopLayout.setVerticalGroup(
             ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -581,11 +603,11 @@ public class ChatGUI extends javax.swing.JFrame {
                         .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(fiftyButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(hundredButton))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(hundredfiftyButton))
@@ -598,10 +620,10 @@ public class ChatGUI extends javax.swing.JFrame {
                         .addGap(13, 13, 13)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(shopSendButton)
-                    .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(119, 141, Short.MAX_VALUE))
+                .addGroup(ShopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(messageOut1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(shopSendButton))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(Shop);
@@ -679,6 +701,12 @@ public class ChatGUI extends javax.swing.JFrame {
 
         playerHandValue1.setText("Player hand value:");
 
+        card5.setText("card5");
+
+        card6.setText("card6");
+
+        card7.setText("card7");
+
         javax.swing.GroupLayout BlackJackLayout = new javax.swing.GroupLayout(BlackJack);
         BlackJack.setLayout(BlackJackLayout);
         BlackJackLayout.setHorizontalGroup(
@@ -702,21 +730,25 @@ public class ChatGUI extends javax.swing.JFrame {
                                 .addComponent(HitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(96, 96, 96))
                             .addGroup(BlackJackLayout.createSequentialGroup()
-                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(BlackJackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(BlackJackLayout.createSequentialGroup()
-                                            .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                            .addGap(185, 185, 185)
-                                            .addComponent(dealerCard, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(BlackJackLayout.createSequentialGroup()
-                                            .addGap(183, 183, 183)
-                                            .addComponent(newBlackJackGame))))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)))
+                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(BlackJackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(BlackJackLayout.createSequentialGroup()
+                                                .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(185, 185, 185)
+                                                .addComponent(dealerCard, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(BlackJackLayout.createSequentialGroup()
+                                                .addGap(183, 183, 183)
+                                                .addComponent(newBlackJackGame))))
+                                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(card6, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)))
                         .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(BlackJackLayout.createSequentialGroup()
                                 .addComponent(messageOut2, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -752,17 +784,22 @@ public class ChatGUI extends javax.swing.JFrame {
                     .addGroup(BlackJackLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(BlackJackLayout.createSequentialGroup()
-                                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(16, 16, 16)
-                                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(62, 62, 62)))
+                                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(card6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(newBlackJackGame))))
                 .addGroup(BlackJackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BlackJackLayout.createSequentialGroup()
@@ -822,7 +859,7 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Exit3))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FilesLayout.createSequentialGroup()
-                .addGap(71, 400, Short.MAX_VALUE)
+                .addGap(71, 401, Short.MAX_VALUE)
                 .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 581, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(FilesLayout.createSequentialGroup()
@@ -843,7 +880,7 @@ public class ChatGUI extends javax.swing.JFrame {
                 .addGroup(FilesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(messageOut4, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(FileSendButton))
-                .addContainerGap(61, Short.MAX_VALUE))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         getContentPane().add(Files);
@@ -902,7 +939,7 @@ public class ChatGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(TTTButton))
                     .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 458, Short.MAX_VALUE))
+                .addGap(0, 73, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TicTacToeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(mainMenu5)
@@ -949,11 +986,14 @@ public class ChatGUI extends javax.swing.JFrame {
         card2.setVisible(false);
         card3.setVisible(false);
         card4.setVisible(false);
+        card5.setVisible(false);
+        card6.setVisible(false);
+        card7.setVisible(false);
         DealerHandValue.setVisible(false);
         playerHandValue1.setVisible(false);
         HitButton.setVisible(false);
         stayButton.setVisible(false);
-        BlackJackConsole.append("Your balance is: " + balance);
+        BlackJackConsole.append("Your balance is: " + balance + "$");
         BlackJackConsole.append("\nPress new Game to begin\n");
         dealerCard.setVisible(false);
         BlackJack.setVisible(true);
@@ -1010,6 +1050,12 @@ public class ChatGUI extends javax.swing.JFrame {
                 if(Pile.whoWon(dealer.getHand().getCards(), player.getHand().getCards()).equals("You won!") ||Pile.whoWon(dealer.getHand().getCards(), player.getHand().getCards()).equals("Dealer bust, You win!") ){
                     balance += 10;
                     BlackJackConsole.append("Your balance is now: " + balance + "\n");
+                    writer.println("Server: "+ userName + " won a game of Black Jack" + ":Chat");
+                    writer.flush();
+                }
+                else{
+                   writer.println("Server: "+ userName + " lost in a game of Black Jack" + ":Chat");
+                   writer.flush();
                 }
     }//GEN-LAST:event_stayButtonActionPerformed
 
@@ -1066,7 +1112,15 @@ public class ChatGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_messageOutActionPerformed
 
     private void sendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendButtonActionPerformed
-      if(messageOut.getText().equals("")){
+      
+        if(messageOut.getText().equals("/bal")){
+           mainMenuConsole.append("Your balance is: " + balance + "$\n");
+              BlackJackConsole.append("Your balance is: " + balance + "$\n");
+              shopConsole.append("Your balance is: " + balance + "$\n");
+              TTTConsole.append("Your balance is: " + balance + "$\n");
+              FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+       else if(messageOut.getText().equals("")){
           messageOut.setText("");
           messageOut.requestFocus();
       }
@@ -1095,8 +1149,10 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void TicTacToeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TicTacToeButtonActionPerformed
         // TODO add your handling code here
+        writer.println(userName + " has started a game of Tic Tac Toe" + ":Chat");
+        writer.flush();
         try {
-					Desktop.getDesktop().open(new File("C:\\Users\\senderp\\Desktop\\TicTacToe.jar"));
+					Desktop.getDesktop().open(new File("C:\\Users\\ryanr4\\Desktop\\TicTacToe.jar"));
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -1122,7 +1178,15 @@ public class ChatGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Exit5ActionPerformed
 
     private void shopSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shopSendButtonActionPerformed
- if(messageOut1.getText().equals("")){
+if(messageOut1.getText().equals("/bal")){
+           mainMenuConsole.append("Your balance is: " + balance + "$\n");
+              BlackJackConsole.append("Your balance is: " + balance + "$\n");
+              shopConsole.append("Your balance is: " + balance + "$\n");
+              TTTConsole.append("Your balance is: " + balance + "$\n");
+              FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+        
+       else if(messageOut1.getText().equals("")){
           messageOut1.setText("");
           messageOut1.requestFocus();
       }
@@ -1155,7 +1219,14 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void blackJackSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blackJackSendButtonActionPerformed
         // TODO add your handling code here:
-        if(messageOut2.getText().equals("")){
+       if(messageOut2.getText().equals("/bal")){
+           mainMenuConsole.append("Your balance is: " + balance + "$\n");
+              BlackJackConsole.append("Your balance is: " + balance + "$\n");
+              shopConsole.append("Your balance is: " + balance + "$\n");
+              TTTConsole.append("Your balance is: " + balance + "$\n");
+              FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+       else if(messageOut2.getText().equals("")){
           messageOut2.setText("");
           messageOut2.requestFocus();
       }
@@ -1182,7 +1253,14 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void TTTButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TTTButtonActionPerformed
         // TODO add your handling code here:
-         if(messageOut3.getText().equals("")){
+         if(messageOut3.getText().equals("/bal")){
+           mainMenuConsole.append("Your balance is: " + balance + "$\n");
+              BlackJackConsole.append("Your balance is: " + balance + "$\n");
+              shopConsole.append("Your balance is: " + balance + "$\n");
+              TTTConsole.append("Your balance is: " + balance + "$\n");
+              FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+       else if(messageOut3.getText().equals("")){
           messageOut3.setText("");
           messageOut3.requestFocus();
       }
@@ -1218,6 +1296,23 @@ public class ChatGUI extends javax.swing.JFrame {
 			card4.setVisible(true);
 			card4.setText("" + player.getHand().getCards().getCard(0).toString());
 		}
+                if (count == 2) {
+			card5.setVisible(true);
+			card5.setText(player.getHand().getCards().getCard(0).toString());
+		}
+		if (count == 3) {
+			card6.setVisible(true);
+			card6.setText("" + player.getHand().getCards().getCard(0).toString());
+		}
+                if (count == 4) {
+			card6.setVisible(true);
+			card6.setText("" + player.getHand().getCards().getCard(0).toString());
+		}
+                if (count == 5) {
+			card7.setVisible(true);
+			card7.setText("" + player.getHand().getCards().getCard(0).toString());
+		}
+                
 		while (dealer.getHand().getCards().valueOfHand() <= 16 && dealer.getHand().getCards().bust() == false) {
 			deck.dealCard(dealer.getHand().getCards());
 			if (dealer.getHand().getCards().getCard(0).getRank() == Card.Rank.Ace
@@ -1228,6 +1323,8 @@ public class ChatGUI extends javax.swing.JFrame {
 		// if player busts the game is over for them
 		if (player.getHand().getCards().bust()) {
 			BlackJackConsole.append("Bust, you lose! Press New Game to play again.\n");
+                        writer.println("Server: "+ userName+ " lost a game of Black Jack" + ":Chat");
+                        writer.flush();
 			stayButton.setVisible(false);
 			HitButton.setVisible(false);
                         DealerHandValue.setVisible(true);
@@ -1260,6 +1357,9 @@ public class ChatGUI extends javax.swing.JFrame {
         card2.setVisible(true);
         card3.setVisible(false);
         card4.setVisible(false);
+        card5.setVisible(false);
+        card6.setVisible(false);
+        card7.setVisible(false);
 	dealerCard.setText("" + dealer.getHand().getCards().getCard(0).toString());
         playerHandValue1.setText("Player value is: " + player.getHand().getCards().valueOfHand());
         dealerCard.setVisible(true);
@@ -1270,16 +1370,20 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void fiftyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyButtonActionPerformed
       if (balance>=50){
+          fiftyButton.setVisible(false);
+          hundredButton.setVisible(true);
+          hundredfiftyButton.setVisible(true);
+          twohundredButton.setVisible(true);
           balance -= 50;
           Shop.setBackground(Color.green);
           BlackJack.setBackground(Color.green);
           MainMenu.setBackground(Color.green);
           Files.setBackground(Color.green);
           TicTacToe.setBackground(Color.green);
-          shopConsole.append("Your new balance is: " + balance + "\n");
+          shopConsole.append("Your new balance is: " + balance + "$\n");
       }
       else{
-          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "\n");
+          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "$\n");
       }
         
 // TODO add your handling code here:
@@ -1288,48 +1392,60 @@ public class ChatGUI extends javax.swing.JFrame {
     private void hundredButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hundredButtonActionPerformed
         // TODO add your handling code here:
          if (balance>=100){
+          fiftyButton.setVisible(true);
+          hundredButton.setVisible(false);
+          hundredfiftyButton.setVisible(true);
+          twohundredButton.setVisible(true);
           balance -= 100;
           Shop.setBackground(Color.blue);
           BlackJack.setBackground(Color.blue);
           MainMenu.setBackground(Color.blue);
           Files.setBackground(Color.blue);
           TicTacToe.setBackground(Color.blue);
-          shopConsole.append("Your new balance is: " + balance + "\n");
+          shopConsole.append("Your new balance is: " + balance + "$\n");
       }
       else{
-          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "\n");
+          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "$\n");
       }
     }//GEN-LAST:event_hundredButtonActionPerformed
 
     private void hundredfiftyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hundredfiftyButtonActionPerformed
         // TODO add your handling code here:
          if (balance>=150){
+          fiftyButton.setVisible(true);
+          hundredButton.setVisible(true);
+          hundredfiftyButton.setVisible(false);
+          twohundredButton.setVisible(true);
           balance -= 150;
           Shop.setBackground(Color.orange);
           BlackJack.setBackground(Color.orange);
           MainMenu.setBackground(Color.orange);
           Files.setBackground(Color.orange);
           TicTacToe.setBackground(Color.orange);
-          shopConsole.append("Your new balance is: " + balance + "\n");
+          shopConsole.append("Your new balance is: " + balance + "$\n");
       }
       else{
-          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "\n");
+          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "$\n");
       }
     }//GEN-LAST:event_hundredfiftyButtonActionPerformed
 
     private void twohundredButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twohundredButtonActionPerformed
         // TODO add your handling code here:
          if (balance>=50){
+          fiftyButton.setVisible(true);
+          hundredButton.setVisible(true);
+          hundredfiftyButton.setVisible(true);
+          twohundredButton.setVisible(false);
           balance -= 50;
           Shop.setBackground(Color.red);
           BlackJack.setBackground(Color.red);
           MainMenu.setBackground(Color.red);
           Files.setBackground(Color.red);
           TicTacToe.setBackground(Color.red);
-          shopConsole.append("Your new balance is: " + balance + "\n");
+          shopConsole.append("Your new balance is: " + balance + "$\n");
       }
       else{
-          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "\n");
+          shopConsole.append("Not enough balance\nYour balance is: "+ balance + "$\n");
       }
     }//GEN-LAST:event_twohundredButtonActionPerformed
 
@@ -1385,7 +1501,14 @@ public class ChatGUI extends javax.swing.JFrame {
 
     private void FileSendButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FileSendButtonActionPerformed
         // TODO add your handling code here:
-        if(messageOut4.getText().equals("")){
+        if(messageOut4.getText().equals("/bal")){
+           mainMenuConsole.append("Your balance is: " + balance + "$\n");
+              BlackJackConsole.append("Your balance is: " + balance + "$\n");
+              shopConsole.append("Your balance is: " + balance + "$\n");
+              TTTConsole.append("Your balance is: " + balance + "$\n");
+              FileConsole.append("Your balance is: " + balance + "$\n");
+        }
+       else if(messageOut4.getText().equals("")){
             messageOut4.setText("");
             messageOut4.requestFocus();
         }
@@ -1456,6 +1579,9 @@ public class ChatGUI extends javax.swing.JFrame {
     private javax.swing.JLabel card2;
     private javax.swing.JLabel card3;
     private javax.swing.JLabel card4;
+    private javax.swing.JLabel card5;
+    private javax.swing.JLabel card6;
+    private javax.swing.JLabel card7;
     private javax.swing.JButton connectButton;
     private javax.swing.JTextArea connectScreenConsole;
     private javax.swing.JScrollPane console;
