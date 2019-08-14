@@ -1,6 +1,6 @@
 # P2P-Chat-Client
 
-##Getting started
+## Getting started
   - For host 1 Download the server.jar, tic-tac-toe.jar, and CHAIP.jar executables. 
              2 Recommended to keep this files on your desktop for easy access.
              3 For purposes of this lab and without access to a private router, the IP address is hard coded. To change it to whatever                yours is please go to the tictactoeclient class and find the line 
