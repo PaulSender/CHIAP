@@ -19,8 +19,10 @@
   
 ## Description
 Version 1: A simple peer to peer chat client run on a user’s command prompt. 
+
+
 Version 2: 
-  - What: A peer to peer chat client with multiple clients and one server. All parties can communicate, and the server has special functionality. The program will then be integrated into a java GUI
+  - What: A chat client with multiple clients and one server. All parties can communicate, and the server has special functionality. The program is useable through a GUI built with Java and netbeans.
   - Why: Version 1 of the chat client was too boring and simple. Our efforts hope to bring the client into a working application that anyone can access anywhere (Web or Android) so long as the server is running. 
   - How: Multiple messages through one client and multiple clients will be done through a technique called multithreading. Server functionality will be done though specially defined methods within the call that get run whenever one of the clients inputs a special keyword. GUI will be designed and implemented in NetBeans and eclipse. 
   
